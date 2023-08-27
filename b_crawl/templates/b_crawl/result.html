@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B-Crawl</title>
+</head>
+
+<body>
+    <h1>B-Crawl</h1>
+    <h2>{{ title }}</h2>
+    <ul>
+        {% for data in scraped_data %}
+        <li>{{ data.postID }} - {{ data.text }} - {{ data.date }}</li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
