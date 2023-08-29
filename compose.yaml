@@ -8,5 +8,5 @@ services:
     volumes:
       - .:/code
     ports:
-      - "80:8000"
+      - "8000:8000"
     container_name: b_crawl
