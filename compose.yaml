@@ -1,6 +1,3 @@
-# バージョンの指定は不要
-# version: '3'
-
 services:
   web:
     build: .
