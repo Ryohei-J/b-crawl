@@ -1,4 +1,6 @@
 {% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -7,19 +9,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B-Crawl</title>
-
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
 </head>
 
 <body>
-    <h1>B-Crawl</h1>
-    <h2>{{ title }}</h2>
-    <ul>
-        {% for data in scraped_data %}
-        <li>{{ data.postID }} - {{ data.text }} - {{ data.date }}</li>
-        {% endfor %}
-    </ul>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <div class="row g-0">
+        <div class="col-md-4 offset-md-4 text-center">
+            <h1>B-Crawl</h1>
+            <h2>{{ title }}</h2>
+        </div>
+    </div>
+    <div class="row g-0">
+        <div class="col-md-4 offset-md-4">
+            <ul>
+                {% for data in scraped_data %}
+                <li class="postID">{{ data.postID }}</li>
+                <li class="postText">{{ data.text }}</li>
+                <li class="postDate">{{ data.date }}</li>
+                <hr>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 </body>
 
 </html>

@@ -11,7 +11,7 @@ h2 {
     font-size: larger;
     font-weight: bold;
     color: #ffffff;
-    padding-left: 12px;
+    padding: 0 16px;
     margin-top: 24px;
 }
 
@@ -19,7 +19,7 @@ h3 {
     font-size: medium;
     font-weight: bold;
     color: #ffffff;
-    padding-left: 12px;
+    padding: 0 16px;
 }
 
 p {
@@ -27,7 +27,7 @@ p {
 }
 
 .text {
-    padding-left: 12px;
+    padding: 0 16px;
 }
 
 .btn {
@@ -44,8 +44,36 @@ p {
     height: 40px;
 }
 
+.errorlist {
+    color: #FF9136;
+}
+
 .fa-twitter {
     font-size: 24px;
     color: #ffffff;
-    padding-left: 12px;
+    padding: 0 16px;
+}
+
+.postID {
+    color: #36FF36;
+}
+
+.postText {
+    color: #ffffff;
+    font-size: larger;
+    margin: 8px 0;
+}
+
+.postDate {
+    color: #ffffff;
+}
+
+hr {
+    color: #DDDDDD;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0 16px;
 }
