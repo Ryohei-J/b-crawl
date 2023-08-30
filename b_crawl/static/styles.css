@@ -1,0 +1,51 @@
+body {
+    background-color: #121212;
+}
+
+h1 {
+    color: #ffffff;
+    margin: 36px auto;
+}
+
+h2 {
+    font-size: larger;
+    font-weight: bold;
+    color: #ffffff;
+    padding-left: 12px;
+    margin-top: 24px;
+}
+
+h3 {
+    font-size: medium;
+    font-weight: bold;
+    color: #ffffff;
+    padding-left: 12px;
+}
+
+p {
+    color: #DDDDDD;
+}
+
+.text {
+    padding-left: 12px;
+}
+
+.btn {
+    background-color: #36FF36;
+    margin-bottom: 12px;
+}
+
+.btn:hover {
+    background-color: #00CB00;
+}
+
+.custom-component {
+    width: 90%;
+    height: 40px;
+}
+
+.fa-twitter {
+    font-size: 24px;
+    color: #ffffff;
+    padding-left: 12px;
+}

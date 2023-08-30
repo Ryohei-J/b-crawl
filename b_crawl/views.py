@@ -16,7 +16,6 @@ def home(request):
             scraped_data = []
             try:
                 while url:
-                    print(url)
                     response = requests.get(url)
                     response.raise_for_status()
 
@@ -26,7 +25,6 @@ def home(request):
                     posts = soup.select('article[id^=cmt_]')
                     for post in posts:
                         postID = post.find(class_='fancybox_com').text if post.find(class_='fancybox_com') else ""
-                        print(postID)
                         text = post.find(class_='res').text if post.find(class_='res') else ""
                         date = post.find(class_='date').text if post.find(class_='date') else ""
 

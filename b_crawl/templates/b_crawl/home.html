@@ -1,3 +1,7 @@
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -5,15 +9,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B-Crawl</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
-    <h1>B-Crawl</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Submit</button>
-    </form>
+    <div class="row g-0">
+        <div class="col-md-2 offset-md-5 text-center">
+            <h1 class="title">B-Crawl</h1>
+            <form method="post">
+                {% csrf_token %}
+                <link rel="stylesheet" href="{% static 'styles.css' %}">
+                {{ form.as_p }}
+                {% bootstrap_button button_type="submit" content="取得" button_class="btn custom-component" %}
+            </form>
+        </div>
+        <div class="col-md-4 offset-md-4">
+            <h2>このアプリについて</h2>
+            <p class="text">掲示板のスレッドのURLを入力すると、全レスを表示するスクレイピングアプリです。</p>
+
+            <h2>
+                対応掲示板
+            </h2>
+            <h3>ホスラブ</h3>
+            <p class="text">/a/1で終わるスレッドトップページのURLを入力してください。<br />例: https://kanto.hostlove.com/fuat/*****/a/1</p>
+
+            <h3>爆サイ</h3>
+            <p class="text">[最初から表示]をクリックして表示されるページのURLを入力してください。</p>
+            <h2>
+                問い合わせ
+            </h2>
+            <a href="https://twitter.com/rio_yolo" target="_blank">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </div>
+    </div>
 </body>
 
 </html>
