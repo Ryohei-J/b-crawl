@@ -1,9 +1,24 @@
 services:
-  web:
+  app:
     build: .
-    command: python manage.py runserver 0:8000
+    # command: python manage.py runserver 0:8000
+    command: sh -c "/code/entrypoint.sh"
     volumes:
       - .:/code
-    ports:
-      - "8000:8000"
+    # ports:
+    #   - "8000:8000"
+    expose:
+      - "8000"
     container_name: b_crawl
+
+  web:
+    image: nginx
+    build:
+      dockerfile: Dockerfile.nginx
+    volumes:
+      - ./static:/static
+    ports:
+      - "80:80"
+    depends_on:
+      - app
+    container_name: nginx
