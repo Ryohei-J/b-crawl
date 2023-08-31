@@ -1,6 +1,7 @@
 services:
   app:
-    build: .
+    build:
+      context: .
     # command: python manage.py runserver 0:8000
     command: sh -c "/code/entrypoint.sh"
     volumes:
@@ -14,6 +15,7 @@ services:
   web:
     image: nginx
     build:
+      context: .
       dockerfile: Dockerfile.nginx
     volumes:
       - ./static:/static
