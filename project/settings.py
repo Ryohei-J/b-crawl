@@ -27,12 +27,12 @@ env.read_env(BASE_DIR / '.env')
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = env.get_value('DEBUG',bool)
 
 ALLOWED_HOSTS = [
     'localhost',
     'www.localhost',
-    '43.207.72.75'
+    '35.75.230.231'
 ]
 
 
