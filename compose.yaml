@@ -2,12 +2,9 @@ services:
   app:
     build:
       context: .
-    # command: python manage.py runserver 0:8000
     command: sh -c "/code/entrypoint.sh"
     volumes:
       - .:/code
-    # ports:
-    #   - "8000:8000"
     expose:
       - "8000"
     container_name: b_crawl
