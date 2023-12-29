@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_ses',
 ]
 
 MIDDLEWARE = [
@@ -131,3 +132,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS = ['https://b-crawl.com']
+
+AWS_SES_REGION_NAME="ap-northeast-1"
+AWS_SES_REGION_ENDPOINT="email.ap-northeast-1.amazonaws.com"
+EMAIL_BACKEND="django_ses.SESBackend"
+DEFAULT_FROM_EMAIL = "no-reply@b-crawl.com" 
