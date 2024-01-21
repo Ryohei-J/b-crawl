@@ -44,6 +44,11 @@ p {
     height: 40px;
 }
 
+.custom-component-textarea {
+    width: 90%;
+    height: 140px;
+}
+
 .errorlist {
     color: #FF9136;
 }

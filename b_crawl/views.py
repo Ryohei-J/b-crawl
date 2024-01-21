@@ -112,3 +112,5 @@ def contact(request):
     }
 
     return render(request, 'b_crawl/contact.html',{'form': form})
+
+# サンクス画面

@@ -10,12 +10,20 @@ class ScrapingForm(forms.Form):
 
 class ContactForm(forms.Form):
     name = forms.CharField(
+        label='',
         max_length=50, 
-        required=False
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'custom-component','placeholder': '名前'})
     )
 
     email = forms.EmailField(
-        required=False
+        label='',
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'custom-component','placeholder': 'Email'})
     )
 
-    text = forms.CharField(widget=forms.Textarea)
+    text = forms.CharField(
+        label='',
+        required=True,
+        widget=forms.Textarea(attrs={'class': 'custom-component-textarea','placeholder': '問い合わせ内容'})
+    )
