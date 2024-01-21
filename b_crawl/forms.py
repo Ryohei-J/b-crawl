@@ -18,12 +18,12 @@ class ContactForm(forms.Form):
 
     email = forms.EmailField(
         label='',
-        required=True,
+        required=False,
         widget=forms.TextInput(attrs={'class': 'custom-component','placeholder': 'Email'})
     )
 
     text = forms.CharField(
         label='',
         required=True,
-        widget=forms.Textarea(attrs={'class': 'custom-component-textarea','placeholder': '問い合わせ内容'})
+        widget=forms.Textarea(attrs={'class': 'custom-component','placeholder': '問い合わせ内容'})
     )
