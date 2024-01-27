@@ -39,14 +39,24 @@ p {
     background-color: #00CB00;
 }
 
-.custom-component {
+.contact-name {
     width: 90%;
     height: 40px;
 }
 
-.custom-component-textarea {
+.contact-mail {
     width: 90%;
-    height: 140px;
+    height: 40px;
+}
+
+.contact-body {
+    width: 90%;
+    /* height: 40px; */
+}
+
+.custom-component {
+    width: 90%;
+    height: 40px;
 }
 
 .errorlist {
