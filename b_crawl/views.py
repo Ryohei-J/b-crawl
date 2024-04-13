@@ -1,7 +1,7 @@
 from django.shortcuts import render
 import requests
 from bs4 import BeautifulSoup as bs4
-from b_crawl.forms import ContactForm, ScrapingForm
+from b_crawl.forms import ScrapingForm
 from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import send_mail
 
