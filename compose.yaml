@@ -7,10 +7,9 @@ services:
       - .:/code
     expose:
       - "8000"
-    container_name: b_crawl
+    container_name: app
 
   web:
-    image: nginx
     build:
       context: .
       dockerfile: Dockerfile.nginx
@@ -20,4 +19,4 @@ services:
       - "80:80"
     depends_on:
       - app
-    container_name: nginx
+    container_name: web

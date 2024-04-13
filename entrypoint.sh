@@ -1,11 +1,11 @@
 #!/bin/sh
+
 python manage.py collectstatic --noinput
-# 環境変数のDEBUGの値がTrueの時はrunserverを、Falseの時はgunicornを実行します
+# 環境変数のDEBUGの値によって開発環境か本番環境かを判定
 if [ $DEBUG = "True" ]
 then
     python manage.py runserver 0.0.0.0:8000
 else
-    # gunicornを起動させる時はプロジェクト名を指定します
-    # 今回はdjangopjにします
+    # gunicornを起動
     gunicorn project.wsgi:application --bind 0.0.0.0:8000
 fi

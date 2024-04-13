@@ -133,7 +133,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS = ['https://b-crawl.com']
 
-AWS_SES_REGION_NAME="ap-northeast-1"
-AWS_SES_REGION_ENDPOINT="email.ap-northeast-1.amazonaws.com"
-EMAIL_BACKEND="django_ses.SESBackend"
-DEFAULT_FROM_EMAIL = "noreply@b-crawl.com" 
+# AWS_SES_REGION_NAME="ap-northeast-1"
+# AWS_SES_REGION_ENDPOINT="email.ap-northeast-1.amazonaws.com"
+# EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST='email-smtp.ap-northeast-1.amazonaws.com'
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
+EMAIL_HOST_USER='KIAQSF6YZPYU5IANBUC'
+EMAIL_HOST_PASSWORD='BKdjc6HLmWsV6ccSGtBCl6nxi/4B3yy0G9xZbefoHDO1'
+# DEFAULT_FROM_EMAIL="support@b-crawl.com" 

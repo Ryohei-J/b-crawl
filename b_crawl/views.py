@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup as bs4
 from b_crawl.forms import ContactForm, ScrapingForm
 from django.views.decorators.csrf import csrf_exempt
+from django.core.mail import send_mail
 
 @csrf_exempt
 
@@ -99,20 +100,3 @@ def home(request):
 # 結果画面
 def result(request, user_input):
     return render(request, 'b_crawl/result.html', {'user_input': user_input})
-
-# 問い合わせ画面
-def contact(request):
-    form = ContactForm()
-    if request.method == 'POST' and form.is_valid():
-        name = form.cleaned_data.get('name')
-        email = form.cleaned_data.get('email')
-        text = form.cleaned_data.get('text')
-    context = {
-        'form': form,
-    }
-
-    return render(request, 'b_crawl/contact.html',{'form': form})
-
-# サンクス画面
-def thanks(request):
-    return render(request, 'b_crawl/thanks.html')
