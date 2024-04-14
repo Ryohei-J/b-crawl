@@ -94,7 +94,7 @@ def home(request):
                 title, scraped_data = scrape_bakusai(url)
             
             # create
-            History.objects.create(url=url, thread=title)
+            # History.objects.create(url=url, thread=title)
 
             return render(request, 'b_crawl/result.html', {'title': title, 'scraped_data': scraped_data})
 
@@ -108,4 +108,6 @@ def result(request, user_input):
 def history(request):
     # get
     history_data = History.objects.all()
-    return render(request, 'b_crawl/history.html',{'history_data': history_data})
+    if not history_data.exists():
+        history_data = ""
+    return render(request, 'b_crawl/history.html', {'history_data': history_data})
