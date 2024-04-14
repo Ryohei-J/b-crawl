@@ -40,21 +40,6 @@ p {
     background-color: #00CB00;
 }
 
-.contact-name {
-    width: 90%;
-    height: 40px;
-}
-
-.contact-mail {
-    width: 90%;
-    height: 40px;
-}
-
-.contact-body {
-    width: 90%;
-    /* height: 40px; */
-}
-
 .custom-component {
     width: 90%;
     height: 40px;
@@ -82,6 +67,15 @@ p {
 }
 
 .postDate {
+    color: #ffffff;
+}
+
+.threadTitle {
+    color: #ffffff;
+    font-size: larger;
+}
+
+.url {
     color: #ffffff;
 }
 

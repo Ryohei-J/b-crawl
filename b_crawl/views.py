@@ -3,7 +3,7 @@ import requests
 from bs4 import BeautifulSoup as bs4
 from b_crawl.forms import ScrapingForm
 from django.views.decorators.csrf import csrf_exempt
-from django.core.mail import send_mail
+from .models import History
 
 @csrf_exempt
 
@@ -92,6 +92,9 @@ def home(request):
             # 爆サイの場合
             elif 'bakusai.com' in url:
                 title, scraped_data = scrape_bakusai(url)
+            
+            # create
+            History.objects.create(url=url, thread=title)
 
             return render(request, 'b_crawl/result.html', {'title': title, 'scraped_data': scraped_data})
 
@@ -100,3 +103,9 @@ def home(request):
 # 結果画面
 def result(request, user_input):
     return render(request, 'b_crawl/result.html', {'user_input': user_input})
+
+# 履歴
+def history(request):
+    # get
+    history_data = History.objects.all()
+    return render(request, 'b_crawl/history.html',{'history_data': history_data})

@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_ses',
 ]
 
 MIDDLEWARE = [
@@ -81,9 +80,16 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": os.environ.get("MYSQL_DATABASE"),
+        "USER": os.environ.get("MYSQL_USER"),
+        "PASSWORD": os.environ.get("MYSQL_PASSWORD"),
+        "HOST": "db",
+        "PORT": 3306,
+        "OPTIONS": {
+            "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
     }
 }
 
@@ -132,13 +138,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS = ['https://b-crawl.com']
-
-# AWS_SES_REGION_NAME="ap-northeast-1"
-# AWS_SES_REGION_ENDPOINT="email.ap-northeast-1.amazonaws.com"
-# EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST='email-smtp.ap-northeast-1.amazonaws.com'
-EMAIL_PORT=587
-EMAIL_USE_TLS=True
-EMAIL_HOST_USER='KIAQSF6YZPYU5IANBUC'
-EMAIL_HOST_PASSWORD='BKdjc6HLmWsV6ccSGtBCl6nxi/4B3yy0G9xZbefoHDO1'
-# DEFAULT_FROM_EMAIL="support@b-crawl.com" 

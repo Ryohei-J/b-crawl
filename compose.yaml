@@ -7,6 +7,8 @@ services:
       - .:/code
     expose:
       - "8000"
+    depends_on:
+      - db
     container_name: app
 
   web:
@@ -16,7 +18,22 @@ services:
     volumes:
       - ./static:/static
     ports:
-      - "80:80"
+      - 80:80
     depends_on:
       - app
     container_name: web
+
+  db:
+    build:
+      context: .
+      dockerfile: Dockerfile.mysql
+    env_file:
+      - .env
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    container_name: mysql
+
+volumes:
+  db_data:
