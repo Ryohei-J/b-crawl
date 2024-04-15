@@ -23,8 +23,8 @@
         </div>
         <div class="col-md-4 offset-md-4">
             <ul>
-                {% for data in history_data %}
-                <li class="threadTitle">{{ data.title }}</li>
+                {% for data in history_data reversed %}
+                <li class="title">{{ data.title }}</li>
                 <li class="url">{{ data.url }}</li>
                 <hr>
                 {% endfor %}

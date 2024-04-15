@@ -71,13 +71,14 @@ p {
     font-size: larger;
 }
 
-.threadTitle {
+.title {
     color: #ffffff;
     font-size: larger;
 }
 
 .url {
     color: #ffffff;
+    word-wrap: break-word;
 }
 
 hr {
