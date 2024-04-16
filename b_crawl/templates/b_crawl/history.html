@@ -23,9 +23,9 @@
         </div>
         <div class="col-md-4 offset-md-4">
             <ul>
-                {% for data in history_data reversed %}
+                {% for data in history_data[:30] reversed %}
                 <li class="title">{{ data.title }}</li>
-                <li class="url">{{ data.url }}</li>
+                <li class="url"><a href="{{ data.url }}">{{ data.url }}</a></li>
                 <hr>
                 {% endfor %}
             </ul>

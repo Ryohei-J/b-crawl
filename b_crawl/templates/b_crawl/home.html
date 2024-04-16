@@ -20,13 +20,20 @@
     <div class="row g-0">
         <div class="col-md-2 offset-md-5 text-center">
             <h1 class="title">B-Crawl</h1>
+            <!-- get daata -->
             <form method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
                 {% bootstrap_button button_type="submit" content="取得" button_class="btn custom-component" %}
             </form>
+            <!-- history -->
+            <button type=“button” onclick="location.href='https://b-crawl.com/history'" class="btn custom-component">
+                履歴
+            </button>
         </div>
+
         <div class="col-md-4 offset-md-4">
+            <!-- about, how to use -->
             <h2>このアプリについて</h2>
             <p class="text">
                 掲示板のスレッドのURLを入力すると、全レスを表示するスクレイピングアプリです。
@@ -42,6 +49,8 @@
 
             <h3>爆サイ</h3>
             <p class="text">[最初から(表示)]をクリックして表示されるページのURLを入力してください。<br />例: https://bakusai.com/*****/tp=1/rw=1/</p>
+
+            <!-- contact -->
             <h2>
                 問い合わせ
             </h2>
