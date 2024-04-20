@@ -49,11 +49,18 @@ p {
     color: #FF9136;
 }
 
-.fa-twitter {
-    font-size: 24px;
-    color: #ffffff;
+.icon {
     padding: 0 16px;
-    margin-bottom: 24px;
+}
+
+.icon-twitter {
+    color: #121212;
+    margin-right: 16px;
+}
+
+.icon-peing {
+    color: #121212;
+    margin-right: 16px;
 }
 
 .postID {
@@ -68,6 +75,7 @@ p {
 
 .postDate {
     color: #ffffff;
+    font-size: larger;
 }
 
 .title {
