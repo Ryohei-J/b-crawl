@@ -2,4 +2,4 @@
 
 The scraping application for web bulletin boards.
 
-https://b-crawl.com/
+~~https://b-crawl.com/~~ (Temporarily closed)
