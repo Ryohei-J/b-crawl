@@ -94,7 +94,7 @@ def home(request):
                 title, scraped_data = scrape_bakusai(url)
             
             # create
-            History.objects.create(url=url, title=title)
+            # History.objects.create(url=url, title=title)
 
             return render(request, 'b_crawl/result.html', {'title': title, 'scraped_data': scraped_data})
 
