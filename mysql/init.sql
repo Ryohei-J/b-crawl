@@ -1,2 +1,1 @@
-GRANT ALL PRIVILEGES ON *.* TO 'django'@'%';
-FLUSH PRIVILEGES;
+GRANT ALL PRIVILEGES ON b_crawl.* TO 'jasper_admin'@'%';
