@@ -97,3 +97,22 @@ ul {
     margin: 0;
     padding: 0 16px;
 }
+
+.container {
+    display: flex;
+    margin-bottom: 12px;
+}
+
+.left-container {
+    width: 80%
+}
+
+.right-container {
+    width: 20%
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

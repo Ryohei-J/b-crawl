@@ -21,15 +21,23 @@
             <h1>B-Crawl</h1>
             <h2>最近取得されたスレッド</h2>
         </div>
-        <div class="col-md-4 offset-md-4">
-            <ul>
-                {% for data in history_data reversed %}
-                <li class="title">{{ data.title }}</li>
-                <li class="url"><a href="{{ data.url }}">{{ data.url }}</a></li>
-                <hr>
-                {% endfor %}
-            </ul>
+        {% for data in history_data reversed %}
+        <div class="col-md-4 offset-md-4 container">
+            <div class="left-container">
+                <ul>
+                    <li class="title">{{ data.title }}</li>
+                    <li class="url"><a href="{{ data.url }}">{{ data.url }}</a></li>
+                </ul>
+            </div>
+            <div class="right-container button-container">
+                <button type=“button” onclick="" class="btn custom-component" disabled>
+                    取得
+                </button>
+            </div>
+            <hr>
         </div>
+        {% endfor %}
+    </div>
     </div>
 </body>
 
