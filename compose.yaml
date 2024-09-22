@@ -3,6 +3,8 @@ services:
     build:
       context: .
     command: sh -c "/code/entrypoint.sh"
+    env_file:
+      - .env
     volumes:
       - .:/code
     expose:
@@ -15,6 +17,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.nginx
+    env_file:
+      - .env
     volumes:
       - ./static:/static
     ports:

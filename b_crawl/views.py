@@ -1,9 +1,9 @@
-from django.shortcuts import render
 import requests
 from bs4 import BeautifulSoup as bs4
 from b_crawl.forms import ScrapingForm
 from django.views.decorators.csrf import csrf_exempt
 from .models import History
+from django.shortcuts import redirect, render
 
 @csrf_exempt
 
@@ -96,13 +96,25 @@ def home(request):
             # create
             History.objects.create(url=url, title=title)
 
-            return render(request, 'b_crawl/result.html', {'title': title, 'scraped_data': scraped_data})
+            request.session['title'] = title
+            request.session['scraped_data'] = scraped_data
+
+            return redirect('result')
 
     return render(request, 'b_crawl/home.html', {'form': form})
 
 # 結果画面
-def result(request, user_input):
-    return render(request, 'b_crawl/result.html', {'user_input': user_input})
+def result(request):
+    if 'title' not in request.session or 'scraped_data' not in request.session:
+        return redirect('/')
+    
+    title = request.session.get('title', '')
+    scraped_data = request.session.get('scraped_data', [])
+
+    # セッションを削除
+    request.session.flush()
+
+    return render(request, 'b_crawl/result.html', {'title': title, 'scraped_data': scraped_data})
 
 # 履歴
 def history(request):
@@ -110,4 +122,8 @@ def history(request):
     history_data = History.objects.all()
     if not history_data.exists():
         history_data = ""
+    
+    # post
+    # if request.method == 'POST':
+
     return render(request, 'b_crawl/history.html', {'history_data': history_data})
