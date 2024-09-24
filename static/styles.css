@@ -40,6 +40,11 @@ p {
     background-color: #00CB00;
 }
 
+.sort-btn {
+    margin-top: 24px;
+    padding-right: 16px;
+}
+
 .custom-component {
     width: 90%;
     height: 40px;
@@ -111,8 +116,14 @@ ul {
     width: 20%
 }
 
-.button-container {
+.btn-container {
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.sort-btn-container {
+    display: flex;
+    justify-content: right;
     align-items: center;
 }
