@@ -119,7 +119,7 @@ def result(request):
 # 履歴
 def history(request):
     # get
-    history_data = History.objects.order_by('-created_at')[:30]
+    history_data = History.objects.order_by('created_at')[:30]
     if not history_data.exists():
         history_data = ""
     
