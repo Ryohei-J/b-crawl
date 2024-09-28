@@ -21,7 +21,7 @@
             <h1>B-Crawl</h1>
             <h2>最近取得されたスレッド</h2>
         </div>
-        {% for data in history_data reversed %}
+        {% for data in history_data %}
         <form method="post">
             {% csrf_token %}
             <div class="col-md-4 offset-md-4 container">
