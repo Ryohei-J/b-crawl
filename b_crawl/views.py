@@ -118,12 +118,29 @@ def result(request):
 
 # 履歴
 def history(request):
-    # get
     history_data = History.objects.filter(is_deleted=0).order_by('-id')[:30]
-    if not history_data.exists():
-        history_data = ""
-    
-    # post
-    # if request.method == 'POST':
 
+    # 履歴から取得
+    if request.method == 'POST':
+        url = request.POST.get('url')
+        title = ""
+        scraped_data = []
+        # ホスラブの場合
+        if 'hostlove.com' in url:
+            title, scraped_data = scrape_hostlove(url)
+        # 爆サイの場合
+        elif 'bakusai.com' in url:
+            title, scraped_data = scrape_bakusai(url)
+            
+        # create
+        History.objects.create(url=url, title=title)
+
+        request.session['title'] = title
+        request.session['scraped_data'] = scraped_data
+
+        return redirect('result')
+    
+    # 履歴書表示
+    elif not history_data.exists():
+        history_data = ""
     return render(request, 'b_crawl/history.html', {'history_data': history_data})

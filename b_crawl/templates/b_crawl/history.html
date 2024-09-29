@@ -29,10 +29,11 @@
                     <ul>
                         <li class="title">{{ data.title }}</li>
                         <li class="url"><a href="{{ data.url }}">{{ data.url }}</a></li>
+                        <input type="hidden" name="url" value="{{ data.url }}">
                     </ul>
                 </div>
                 <div class="right-container btn-container">
-                    <button class="btn custom-component" disabled>
+                    <button class="btn custom-component">
                         取得
                     </button>
                 </div>
