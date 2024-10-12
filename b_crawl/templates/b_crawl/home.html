@@ -22,15 +22,21 @@
         </div>
         <div class="col-md-2 offset-md-5 text-center">
             <!-- get daata -->
-            <form method="post">
+            <form method="post" id="form">
                 {% csrf_token %}
                 {{ form.as_p }}
                 {% bootstrap_button button_type="submit" content="取得" button_class="btn custom-component" %}
             </form>
             <!-- history -->
-            <button type=“button” onclick="location.href='./history'" class="btn custom-component">
-                履歴
-            </button>
+            <div class="history-btn-container">
+                <button type=“button” onclick="location.href='./history-all'" class="btn btn-history custom-component">
+                    みんなの履歴
+                </button>
+                <button type=“button” onclick="location.href='./history-yours'" class="btn btn-history custom-component"
+                    disabled>
+                    あなたの履歴
+                </button>
+            </div>
         </div>
 
         <div class="col-md-4 offset-md-4">
@@ -66,3 +72,15 @@
 </body>
 
 </html>
+
+<script>
+    document.getElementById('form').addEventListener('submit', function (event) {
+        // event.preventDefault();  // フォームの送信を防ぐ
+        const inputData = document.getElementById('inputData').value;
+
+        // ローカルストレージに保存 (キーを"formData"として保存)
+        let formData = JSON.parse(localStorage.getItem('form')) || [];
+        formData.push(inputData);
+        localStorage.setItem('form', JSON.stringify(formData));
+    });
+</script>

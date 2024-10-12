@@ -128,3 +128,13 @@ ul {
     align-items: center;
     padding-right: 16px;
 }
+
+.history-btn-container {
+    display: flex;
+    gap: 16px;
+    padding: 0px 16px;
+}
+
+.btn-history {
+    margin-bottom: 12px;
+}

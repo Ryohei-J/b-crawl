@@ -116,8 +116,8 @@ def result(request):
 
     return render(request, 'b_crawl/result.html', {'title': title, 'scraped_data': scraped_data})
 
-# 履歴
-def history(request):
+# みんなの履歴
+def history_all(request):
     history_data = History.objects.filter(is_deleted=0).order_by('-id')[:30]
 
     # 履歴から取得
@@ -140,7 +140,11 @@ def history(request):
 
         return redirect('result')
     
-    # 履歴書表示
+    # 履歴表示
     elif not history_data.exists():
         history_data = ""
-    return render(request, 'b_crawl/history.html', {'history_data': history_data})
+    return render(request, 'b_crawl/history-all.html', {'history_data': history_data})
+
+# あなたの履歴
+def history_yours(request):
+    return render(request, 'b_crawl/history-yours.html')
