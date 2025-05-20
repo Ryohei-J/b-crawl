@@ -23,15 +23,25 @@
         </div>
 
         <script>
-            // ローカルストレージからデータを取得して表示
-            const formData = JSON.parse(localStorage.getItem('form')) || [];
-            const historyList = document.getElementById('historyList');
+            // localStorageからデータを取得
+            const storedData = localStorage.getItem('formData');
 
-            formData.forEach(data => {
-                const listItem = document.createElement('li');
-                listItem.textContent = data;
-                historyList.appendChild(listItem);
-            });
+            if (storedData) {
+                // データをJSONからオブジェクトに変換
+                const data = JSON.parse(storedData);
+
+                // 表示用のHTMLを生成
+                let output = '<ul>';
+                for (const key in data) {
+                    output += `<li><strong>${key}:</strong> ${data[key]}</li>`;
+                }
+                output += '</ul>';
+
+                // データをHTML内に表示
+                document.getElementById('dataDisplay').innerHTML = output;
+            } else {
+                document.getElementById('dataDisplay').innerHTML = '<p>データが保存されていません。</p>';
+            }
         </script>
 
     </div>

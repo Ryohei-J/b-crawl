@@ -32,10 +32,10 @@
                 <button type=“button” onclick="location.href='./history-all'" class="btn btn-history custom-component">
                     みんなの履歴
                 </button>
-                <button type=“button” onclick="location.href='./history-yours'" class="btn btn-history custom-component"
+                <!-- <button type=“button” onclick="location.href='./history-yours'" class="btn btn-history custom-component"
                     disabled>
                     あなたの履歴
-                </button>
+                </button> -->
             </div>
         </div>
 
@@ -75,12 +75,22 @@
 
 <script>
     document.getElementById('form').addEventListener('submit', function (event) {
-        // event.preventDefault();  // フォームの送信を防ぐ
-        const inputData = document.getElementById('inputData').value;
+        // フォームのデフォルト送信を防ぐ
+        event.preventDefault();
 
-        // ローカルストレージに保存 (キーを"formData"として保存)
-        let formData = JSON.parse(localStorage.getItem('form')) || [];
-        formData.push(inputData);
-        localStorage.setItem('form', JSON.stringify(formData));
+        // フォームデータを取得
+        const formData = new FormData(this);
+
+        // データを保存するためのオブジェクトを作成
+        const data = {};
+        formData.forEach((value, key) => {
+            data[key] = value;
+        });
+
+        // フォームデータをlocalStorageに保存
+        localStorage.setItem('formData', JSON.stringify(data));
+
+        // 必要に応じて、保存後にフォームを送信することも可能
+        this.submit(); // 保存後にフォームを送信したい場合はこの行をコメントアウト解除
     });
 </script>
