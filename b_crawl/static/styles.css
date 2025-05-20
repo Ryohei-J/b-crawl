@@ -55,6 +55,7 @@ p {
 
 .icon {
     padding: 0 32px 24px 16px;
+    margin-bottom: 32px;
 }
 
 .icon-twitter {
