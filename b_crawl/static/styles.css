@@ -108,6 +108,10 @@ ul {
     margin-bottom: 12px;
 }
 
+.history-container {
+    margin-bottom: 64px;
+}
+
 .left-container {
     width: 80%
 }
